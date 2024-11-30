@@ -85,9 +85,12 @@ namespace AirportTicketBookingExercise.Users
         }
         public bool AddNewUser(string username, string password)
         {
+            if (username == string.Empty || password == string.Empty) return false;
+            
             User? user = (from one in _users where one.Username == username select one).FirstOrDefault();
-            if (user != null)
-                return false;
+           
+            if (user != null) return false;
+            
             byte[] key = new byte[16];
             byte[] iv = new byte[16];
             using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
