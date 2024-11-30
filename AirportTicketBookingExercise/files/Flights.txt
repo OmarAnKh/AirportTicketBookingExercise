@@ -1,10 +1,10 @@
-1, 300$, Palestine, USA, 11/13/2024 12:00:00 AM, Amm, CAL, Economy, True, Omar Shafie
-2, 300$, Palestine, USA, 11/13/2024 12:00:00 AM, Amm, CAL, Economy, True, Abood Jbr
-3, 450$, Italy, Egypt, 11/13/2024 12:00:00 AM, CAI, LAX, Business, True, Samira
-4, 250$, Italy, France, 11/13/2024 12:00:00 AM, CDG, JFK, Economy, True, Omar Khalili 
-5, 550$, Spain, Japan, 11/13/2024 12:00:00 AM, NRT, ORD, First, True, Hiroshi
-6, 380$, Canada, Australia, 11/13/2024 12:00:00 AM, SYD, SFO, Economy, True, Omar Khalili
-7, 600$, Australia, UK, 11/13/2024 12:00:00 AM, LHR, IAD, Business, True, Oliver
-8, 320$, Brazil, India, 11/13/2024 12:00:00 AM, BOM, DFW, Economy, True, Omar Khalili
-9, 270$, UK, Canada, 11/13/2024 12:00:00 AM, YYZ, ATL, Economy, True, Emily
-10, 490$, Italy, Palestine, 11/13/2024 12:00:00 AM, FCO, MIA, First, True, Amjad Awad
+1, 300$, Palestine, USA, 11/30/2024 12:00:00 AM, Amm, CAL, Economy, True, Omar Shafie
+2, 300$, Palestine, USA, 11/30/2024 12:00:00 AM, Amm, CAL, Economy, True, Abood Jbr
+3, 450$, Italy, Egypt, 11/30/2024 12:00:00 AM, CAI, LAX, Business, True, Samira
+4, 250$, Italy, France, 11/30/2024 12:00:00 AM, CDG, JFK, Economy, False, 
+5, 550$, Spain, Japan, 11/30/2024 12:00:00 AM, NRT, ORD, First, True, Abood Jbr
+6, 380$, Canada, Australia, 11/30/2024 12:00:00 AM, SYD, SFO, Economy, True, Omar Khalili
+7, 600$, Australia, UK, 11/30/2024 12:00:00 AM, LHR, IAD, Business, True, Oliver
+8, 320$, Brazil, India, 11/30/2024 12:00:00 AM, BOM, DFW, Economy, True, Ahmad Iyrot
+9, 270$, UK, Canada, 11/30/2024 12:00:00 AM, YYZ, ATL, Economy, True, Emily
+10, 490$, Italy, Palestine, 11/30/2024 12:00:00 AM, FCO, MIA, First, True, Amjad Awad

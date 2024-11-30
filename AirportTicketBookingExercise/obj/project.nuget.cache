@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "IKtf6wolPDg=",
+  "dgSpecHash": "FTknsGkaZPI=",
   "success": true,
   "projectFilePath": "D:\\VS-20230610T091643Z-001\\VS\\course\\foothill\\C#\\Airport-Ticket-Booking-Exercise-SOLID-principles\\Airport-Ticket-Booking-Exercise-SOLID-principles\\AirportTicketBookingExercise\\AirportTicketBookingExercise.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Omark\\.nuget\\packages\\autofixture\\5.0.0-preview0011\\autofixture.5.0.0-preview0011.nupkg.sha512",
+    "C:\\Users\\Omark\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\Omark\\.nuget\\packages\\fare\\2.2.1\\fare.2.2.1.nupkg.sha512",
+    "C:\\Users\\Omark\\.nuget\\packages\\moq\\4.20.72\\moq.4.20.72.nupkg.sha512",
+    "C:\\Users\\Omark\\.nuget\\packages\\system.componentmodel.annotations\\4.4.0\\system.componentmodel.annotations.4.4.0.nupkg.sha512",
+    "C:\\Users\\Omark\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
