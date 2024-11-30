@@ -108,7 +108,7 @@ namespace AirportTicketBookingExercise.Test
 
         [Theory]
         [InlineData("Abood Jbr","2", "3", "900$")]
-        [InlineData("Ahmad Iyrot ","8", "2", "640$")]
+        [InlineData("Ahmad Iyrot","8", "2", "640$")]
         [InlineData("Samira","3", "3", "675$")]
         [InlineData("Oliver","7", "1", "300$")]
         [InlineData("Amjad Awad","10", "2", "245$")]
