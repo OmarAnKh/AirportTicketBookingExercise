@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirportTicketBookingExercise", "AirportTicketBookingExercise\AirportTicketBookingExercise.csproj", "{EE6E85CA-0CBF-4633-A8EE-5B04C2430713}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirportTicketBookingExercise.Test", "AirportTicketBookingExercise.Test\AirportTicketBookingExercise.Test.csproj", "{952429BB-5FAB-46F3-AE65-8B2F7CFD9991}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE6E85CA-0CBF-4633-A8EE-5B04C2430713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE6E85CA-0CBF-4633-A8EE-5B04C2430713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE6E85CA-0CBF-4633-A8EE-5B04C2430713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE6E85CA-0CBF-4633-A8EE-5B04C2430713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{952429BB-5FAB-46F3-AE65-8B2F7CFD9991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{952429BB-5FAB-46F3-AE65-8B2F7CFD9991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{952429BB-5FAB-46F3-AE65-8B2F7CFD9991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{952429BB-5FAB-46F3-AE65-8B2F7CFD9991}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
