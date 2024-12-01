@@ -1,45 +1,37 @@
-name: Build and Test
+name: build and test
 
 on:
   push:
   pull_request:
     branches: [ main ]
     paths:
-      - '**.cs'
-      - '**.csproj'
+    - '**.cs'
+    - '**.csproj'
 
 env:
   DOTNET_VERSION: '8.0.100' # Update to .NET 8.0 SDK version
 
 jobs:
   build-and-test:
-    name: Build and Test on ${{ matrix.os }}
+
+    name: build-and-test-${{matrix.os}}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
-
-    - name: Setup .NET
+    - uses: actions/checkout@v3
+    - name: Setup .NET Core
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
-    - name: Install Dependencies
+    - name: Install dependencies
       run: dotnet restore
       
-    - name: Build Solution
+    - name: Build
       run: dotnet build --configuration Release --no-restore
     
-    - name: Run Tests
+    - name: Test
       run: dotnet test --no-restore --verbosity normal
-
-    - name: Publish Test Results (Optional)
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: TestResults
-        path: '**/TestResults/*.trx'
