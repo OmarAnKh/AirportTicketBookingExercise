@@ -15,14 +15,14 @@ namespace AirportTicketBookingExercise.Flight
 
     public static class FlightClassEXT
     {
-        public static string FromEcoToBusiness(this FlightClass flight, string price)
+        public static string? FromEcoToBusiness(this FlightClass flight, string price)
         {
             float priceInInt = FromStringToInt(price);
             priceInInt = priceInInt * 2f;
             return $"{priceInInt}$";
         }
 
-        public static string FromEcoToFirst(this FlightClass flight,string price)
+        public static string? FromEcoToFirst(this FlightClass flight,string price)
         {
             float priceInInt =FromStringToInt(price);
             priceInInt = priceInInt * 3f;
@@ -30,13 +30,13 @@ namespace AirportTicketBookingExercise.Flight
         }
 
 
-        public static string FromBusinessToEco(this FlightClass flight, string price)
+        public static string? FromBusinessToEco(this FlightClass flight, string price)
         {
             float priceInInt = FromStringToInt(price);
             priceInInt = priceInInt / 2f;
             return $"{priceInInt:0}$";
         }
-        public static string FromBusinessToFirst(this FlightClass flight, string price)
+        public static string? FromBusinessToFirst(this FlightClass flight, string price)
         {
             float priceInInt = FromStringToInt(price);
             priceInInt = priceInInt *1.5f;
@@ -44,7 +44,7 @@ namespace AirportTicketBookingExercise.Flight
         }
 
 
-        public static string FromFirstToEco(this FlightClass flight, string price)
+        public static string? FromFirstToEco(this FlightClass flight, string price)
         {
             float priceInInt = FromStringToInt(price);
             priceInInt = priceInInt / 3f;
@@ -52,7 +52,7 @@ namespace AirportTicketBookingExercise.Flight
         }
 
 
-        public static string FromFirstToBusiness(this FlightClass flight, string price)
+        public static string? FromFirstToBusiness(this FlightClass flight, string price)
         {
             float priceInInt = FromStringToInt(price);
             priceInInt = priceInInt / 2f;

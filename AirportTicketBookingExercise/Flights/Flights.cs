@@ -13,8 +13,8 @@ namespace AirportTicketBookingExercise.Flight
     #region Interfaces
     public interface IFlightPersistence
     {
-        void SaveFlights(List<Flight> flights, string path);
-        List<Flight> LoadFlights(string path);
+        void SaveFlights(List<Flight>? flights, string path);
+        List<Flight>? LoadFlights(string path);
     }
 
     public interface IBookingManager
@@ -26,13 +26,13 @@ namespace AirportTicketBookingExercise.Flight
 
     public interface IFlightDisplay
     {
-        void ShowFlights(List<Flight> flights);
-        bool ShowUserBookings(string user);
+        void ShowFlights(List<Flight>? flights);
+        bool ShowUserBookings(string? user);
     }
 
     public interface IFlightSearch
     {
-        List<Flight> SearchFlights(string searchTerm);
+        List<Flight>? SearchFlights(string searchTerm);
         List<Flight> FilterBookings(string searchTerm);
     }
     #endregion
@@ -40,7 +40,7 @@ namespace AirportTicketBookingExercise.Flight
     #region Implementations
     public class FlightPersistence : IFlightPersistence
     {
-        public void SaveFlights(List<Flight> flights, string path)
+        public void SaveFlights(List<Flight>? flights, string path)
         {
             using StreamWriter sw = new StreamWriter(path, false, Encoding.ASCII);
             foreach (var flight in flights)
@@ -50,7 +50,7 @@ namespace AirportTicketBookingExercise.Flight
             }
         }
 
-        public List<Flight> LoadFlights(string path)
+        public List<Flight>? LoadFlights(string path)
         {
             var flights = new List<Flight>();
             try
@@ -59,7 +59,7 @@ namespace AirportTicketBookingExercise.Flight
                 string? line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    var data = line.Split(", ");
+                    string?[] data = line.Split(", ");
                     if (data.Length < 9 || data.Length > 10)
                     {
                         Console.WriteLine("Invalid data format in line: " + line);
@@ -86,9 +86,9 @@ namespace AirportTicketBookingExercise.Flight
 
     public class BookingManager : IBookingManager
     {
-        private readonly List<Flight> _flights;
+        private readonly List<Flight>? _flights;
 
-        public BookingManager(List<Flight> flights)
+        public BookingManager(List<Flight>? flights)
         {
             _flights = flights;
         }
@@ -151,7 +151,8 @@ namespace AirportTicketBookingExercise.Flight
         private string? UpdateFlightClass(Flight flight, string classChoice)
         {
             FlightClass currentClass = flight.TicketClass;
-            string updatedPrice = flight.Price;
+            string? updatedPrice = flight.Price;
+            if (flight.Price == null) return null;
 
             switch (classChoice)
             {
@@ -210,16 +211,18 @@ namespace AirportTicketBookingExercise.Flight
 
     public class FlightDisplay : IFlightDisplay
     {
-        private readonly List<Flight> _flights;
+        private readonly List<Flight>? _flights;
 
-        public FlightDisplay(List<Flight> flights)
+        public FlightDisplay(List<Flight>? flights)
         {
             _flights = flights;
         }
 
-        public void ShowFlights(List<Flight> flights = null)
+        public void ShowFlights(List<Flight>? flights = null)
         {
             flights ??= _flights;
+            if (flights == null)
+                return;
             foreach (var flight in flights)
             {
                 Console.WriteLine(
@@ -228,7 +231,7 @@ namespace AirportTicketBookingExercise.Flight
             }
         }
 
-        public bool ShowUserBookings(string user)
+        public bool ShowUserBookings(string? user)
         {
             if (user == "") return false;
             var userFlights = _flights.Where(f => f.Passenger.Trim() == user).ToList();
@@ -245,19 +248,19 @@ namespace AirportTicketBookingExercise.Flight
 
     public class FlightSearch : IFlightSearch
     {
-        private readonly List<Flight> _flights;
+        private readonly List<Flight>? _flights;
 
-        public FlightSearch(List<Flight> flights)
+        public FlightSearch(List<Flight>? flights)
         {
             _flights = flights;
         }
-        public List<Flight> SearchFlights(string searchTerm)
+        public List<Flight>? SearchFlights(string searchTerm)
         {
             DateTime parsedDate;
             bool isDate = DateTime.TryParse(searchTerm, out parsedDate);
             FlightClass parsedClass;
             bool isClass = Enum.TryParse(searchTerm, true, out parsedClass);
-            List<Flight> flights = (from flight in _flights
+            List<Flight>? flights = (from flight in _flights
                 where (isDate && (flight.DepartureDate.CompareTo(parsedDate) == 0)
                        || flight.Price == searchTerm
                        || flight.DepartureCountry == searchTerm
@@ -300,7 +303,7 @@ namespace AirportTicketBookingExercise.Flight
     {
         private static FlightList? _instance;
         private readonly static object LockObject = new object();
-        private readonly List<Flight> _flights;
+        private readonly List<Flight>? _flights;
         private readonly IFlightPersistence _persistence;
         private readonly IBookingManager _bookingManager;
         private readonly IFlightDisplay _display;
@@ -325,7 +328,7 @@ namespace AirportTicketBookingExercise.Flight
 
         public void SaveFlightsToFile(string path) => _persistence.SaveFlights(_flights, path);
         public void DisplayAllFlights() => _display.ShowFlights(_flights);
-        public bool DisplayUserBookings(string user) => _display.ShowUserBookings(user);
+        public bool DisplayUserBookings(string? user) => _display.ShowUserBookings(user);
         public bool BookFlight(User user, string flightId) => _bookingManager.BookFlight(user, flightId);
         public bool CancelBooking(User user, string flightId) => _bookingManager.CancelBooking(user, flightId);
 
@@ -334,14 +337,18 @@ namespace AirportTicketBookingExercise.Flight
 
         public void SearchFlights(string searchTerm)
         {
-            List<Flight> flights = _search.SearchFlights(searchTerm);
+            List<Flight>? flights = _search.SearchFlights(searchTerm);
             _display.ShowFlights(flights);
         }
         public void FilterBookings(string? searchTerm)
         {
 
-            List<Flight> flights = _search.FilterBookings(searchTerm);
-            _display.ShowUserBookings(searchTerm);
+            if (searchTerm != null)
+            {
+                List<Flight> flights = _search.FilterBookings(searchTerm);
+            }
+            if (searchTerm != null)
+                _display.ShowUserBookings(searchTerm);
 
         }
 

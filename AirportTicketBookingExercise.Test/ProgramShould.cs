@@ -26,7 +26,7 @@ namespace AirportTicketBookingExercise.Test
         [InlineData("Omar Khalili", "", false)]
         [InlineData("", "Khalili@1234", false)]
         [InlineData("Ahmad Khalili", "Ahmad@1234", true)]
-        public void CheckRegister(string username, string password, bool expectedResult)
+        public void CheckRegister(string? username, string password, bool expectedResult)
         {
             //Arrange
 
@@ -95,7 +95,7 @@ namespace AirportTicketBookingExercise.Test
         [Theory]
         [InlineData("Omar Khalili", true)]
         [InlineData("", false)]
-        public void DisplayUserBooking(string username, bool expectedResult)
+        public void DisplayUserBooking(string? username, bool expectedResult)
         {
             //arrange
 

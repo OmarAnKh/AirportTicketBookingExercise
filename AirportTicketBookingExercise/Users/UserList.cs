@@ -13,7 +13,7 @@ namespace AirportTicketBookingExercise.Users
 
     public interface IUserManager
     {
-        public bool AddNewUser(string username, string password);
+        public bool AddNewUser(string? username, string password);
         public User? CheckCredentials(string? username, string? password);
         private static byte[] Encrypt(string plainText, byte[] key, byte[] iv)
         {
@@ -57,7 +57,7 @@ namespace AirportTicketBookingExercise.Users
                 while (line != null)
                 {
 
-                    string[] userInfo = line.Split(", ");
+                    string?[] userInfo = line.Split(", ");
                     users.Add(new User(userInfo[0], userInfo[1], userInfo[2], userInfo[3], userInfo[4]));
                     line = sr.ReadLine();
                 }
@@ -83,7 +83,7 @@ namespace AirportTicketBookingExercise.Users
             _users = users;
             _user = user;
         }
-        public bool AddNewUser(string username, string password)
+        public bool AddNewUser(string? username, string password)
         {
             if (username == string.Empty || password == string.Empty) return false;
             
@@ -100,9 +100,9 @@ namespace AirportTicketBookingExercise.Users
             }
 
             byte[] encryptedPassword = Encrypt(password, key, iv);
-            string encryptedPasswordString = Convert.ToBase64String(encryptedPassword);
-            string keyString = Convert.ToBase64String(key);
-            string ivString = Convert.ToBase64String(iv);
+            string? encryptedPasswordString = Convert.ToBase64String(encryptedPassword);
+            string? keyString = Convert.ToBase64String(key);
+            string? ivString = Convert.ToBase64String(iv);
 
             _users.Add(new User(username, encryptedPasswordString, "Passenger", keyString, ivString));
             return true;
@@ -196,7 +196,8 @@ namespace AirportTicketBookingExercise.Users
             (List<User> Users, int count) usersInfo = _userPersistence.LoadUsers(filePath);
             _users = usersInfo.Users;
             _count = usersInfo.count;
-            _userManager = new UserManager(_users, User);
+            if (User != null)
+                _userManager = new UserManager(_users, User);
             _userDisplay = new UserDisplay();
         }
 
@@ -211,7 +212,7 @@ namespace AirportTicketBookingExercise.Users
 
         public void SaveUsersToFile(string path) => _userPersistence.SaveUsers(_users, path, _count);
         public void DisplayUsers(List<User> users) => _userDisplay.DisplayUsers(users);
-        public bool AddNewUser(string username, string password) => _userManager.AddNewUser(username, password);
+        public bool AddNewUser(string? username, string password) => _userManager.AddNewUser(username, password);
         public User? CheckCredentials(string? username, string? password)
         {
             User? user = _userManager.CheckCredentials(username, password);
