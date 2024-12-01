@@ -30,8 +30,15 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
       
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
+      - name: Build
+      run: dotnet build AirportTicketBookingExerciseSOLIDPrinciples.sln --configuration Release --no-restore --verbosity normal /t:Build
+    
     
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+      
+
+      
+      - name: Build with diagnostics
+  run: dotnet build AirportTicketBookingExerciseSOLIDPrinciples.sln --configuration Release --no-restore --verbosity diagnostic
+
