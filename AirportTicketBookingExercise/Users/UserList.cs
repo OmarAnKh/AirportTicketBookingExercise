@@ -77,8 +77,8 @@ namespace AirportTicketBookingExercise.Users
     public class UserManager : IUserManager
     {
         private readonly List<User> _users;
-        private User _user;
-        public UserManager(List<User> users, User user)
+        private User? _user;
+        public UserManager(List<User> users, User? user)
         {
             _users = users;
             _user = user;
