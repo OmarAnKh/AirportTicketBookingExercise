@@ -16,7 +16,7 @@
           "Newtonsoft.Json": "13.0.1",
           "coverlet.collector": "6.0.0",
           "xunit": "2.9.2",
-          "xunit.runner.visualstudio": "2.5.3"
+          "xunit.runner.visualstudio": "2.8.0"
         },
         "runtime": {
           "AirportTicketBookingExercise.Test.dll": {}
@@ -1144,7 +1144,7 @@
           }
         }
       },
-      "xunit.runner.visualstudio/2.5.3": {},
+      "xunit.runner.visualstudio/2.8.0": {},
       "AirportTicketBookingExercise/1.0.0": {
         "dependencies": {
           "Moq": "4.20.72",
@@ -1851,12 +1851,12 @@
       "path": "xunit.extensibility.execution/2.9.2",
       "hashPath": "xunit.extensibility.execution.2.9.2.nupkg.sha512"
     },
-    "xunit.runner.visualstudio/2.5.3": {
+    "xunit.runner.visualstudio/2.8.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HFFL6O+QLEOfs555SqHii48ovVa4CqGYanY+B32BjLpPptdE+wEJmCFNXlLHdEOD5LYeayb9EroaUpydGpcybg==",
-      "path": "xunit.runner.visualstudio/2.5.3",
-      "hashPath": "xunit.runner.visualstudio.2.5.3.nupkg.sha512"
+      "sha512": "sha512-mqQbS2zr8dfgSWxkNOC6UTzO8JoqpTmM5+FFn2XR/2nVmx2JvEY0YbM5pt2FmXVg9YVe+jKUPHd6KrroyCl67w==",
+      "path": "xunit.runner.visualstudio/2.8.0",
+      "hashPath": "xunit.runner.visualstudio.2.8.0.nupkg.sha512"
     },
     "AirportTicketBookingExercise/1.0.0": {
       "type": "project",

@@ -1864,7 +1864,7 @@
           }
         }
       },
-      "xunit.runner.visualstudio/2.5.3": {
+      "xunit.runner.visualstudio/2.8.0": {
         "type": "package",
         "compile": {
           "lib/net6.0/_._": {}
@@ -5991,10 +5991,10 @@
         "xunit.extensibility.execution.nuspec"
       ]
     },
-    "xunit.runner.visualstudio/2.5.3": {
-      "sha512": "HFFL6O+QLEOfs555SqHii48ovVa4CqGYanY+B32BjLpPptdE+wEJmCFNXlLHdEOD5LYeayb9EroaUpydGpcybg==",
+    "xunit.runner.visualstudio/2.8.0": {
+      "sha512": "mqQbS2zr8dfgSWxkNOC6UTzO8JoqpTmM5+FFn2XR/2nVmx2JvEY0YbM5pt2FmXVg9YVe+jKUPHd6KrroyCl67w==",
       "type": "package",
-      "path": "xunit.runner.visualstudio/2.5.3",
+      "path": "xunit.runner.visualstudio/2.8.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6008,11 +6008,11 @@
         "build/net6.0/xunit.abstractions.dll",
         "build/net6.0/xunit.runner.reporters.netcoreapp10.dll",
         "build/net6.0/xunit.runner.utility.netcoreapp10.dll",
-        "build/net6.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll",
         "build/net6.0/xunit.runner.visualstudio.props",
+        "build/net6.0/xunit.runner.visualstudio.testadapter.dll",
         "lib/net462/_._",
         "lib/net6.0/_._",
-        "xunit.runner.visualstudio.2.5.3.nupkg.sha512",
+        "xunit.runner.visualstudio.2.8.0.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
     },
@@ -6032,7 +6032,7 @@
       "Newtonsoft.Json >= 13.0.1",
       "coverlet.collector >= 6.0.0",
       "xunit >= 2.9.2",
-      "xunit.runner.visualstudio >= 2.5.3"
+      "xunit.runner.visualstudio >= 2.7.0"
     ]
   },
   "packageFolders": {
@@ -6113,8 +6113,10 @@
             "version": "[2.9.2, )"
           },
           "xunit.runner.visualstudio": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
             "target": "Package",
-            "version": "[2.5.3, )"
+            "version": "[2.7.0, )"
           }
         },
         "imports": [
@@ -6136,5 +6138,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "AirportTicketBookingExercise.Test depends on xunit.runner.visualstudio (>= 2.7.0) but xunit.runner.visualstudio 2.7.0 was not found. An approximate best match of xunit.runner.visualstudio 2.8.0 was resolved.",
+      "libraryId": "xunit.runner.visualstudio",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

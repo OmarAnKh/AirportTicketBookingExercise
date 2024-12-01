@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vMMbtvM7myA=",
+  "dgSpecHash": "2ErVLXqxT/M=",
   "success": true,
   "projectFilePath": "D:\\VS-20230610T091643Z-001\\VS\\course\\foothill\\C#\\Airport-Ticket-Booking-Exercise-SOLID-principles\\Airport-Ticket-Booking-Exercise-SOLID-principles\\AirportTicketBookingExercise.Test\\AirportTicketBookingExercise.Test.csproj",
   "expectedPackageFiles": [
@@ -102,7 +102,18 @@
     "C:\\Users\\Omark\\.nuget\\packages\\xunit.core\\2.9.2\\xunit.core.2.9.2.nupkg.sha512",
     "C:\\Users\\Omark\\.nuget\\packages\\xunit.extensibility.core\\2.9.2\\xunit.extensibility.core.2.9.2.nupkg.sha512",
     "C:\\Users\\Omark\\.nuget\\packages\\xunit.extensibility.execution\\2.9.2\\xunit.extensibility.execution.2.9.2.nupkg.sha512",
-    "C:\\Users\\Omark\\.nuget\\packages\\xunit.runner.visualstudio\\2.5.3\\xunit.runner.visualstudio.2.5.3.nupkg.sha512"
+    "C:\\Users\\Omark\\.nuget\\packages\\xunit.runner.visualstudio\\2.8.0\\xunit.runner.visualstudio.2.8.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "AirportTicketBookingExercise.Test depends on xunit.runner.visualstudio (>= 2.7.0) but xunit.runner.visualstudio 2.7.0 was not found. An approximate best match of xunit.runner.visualstudio 2.8.0 was resolved.",
+      "libraryId": "xunit.runner.visualstudio",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
