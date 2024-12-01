@@ -10,7 +10,7 @@ namespace AirportTicketBookingExercise.Test
     {
         private readonly UserList? _users;
         private readonly FlightList _flights;
-        private readonly User _user;
+        private readonly User? _user;
 
 
         public ProgramShould()
@@ -31,7 +31,7 @@ namespace AirportTicketBookingExercise.Test
             //Arrange
 
             //Act
-            bool addingNewUserResult = _users.AddNewUser(username, password);
+            bool addingNewUserResult = _users != null && _users.AddNewUser(username, password);
 
             //Assert
             Assert.Equal(addingNewUserResult, expectedResult);
@@ -46,7 +46,7 @@ namespace AirportTicketBookingExercise.Test
         public void CheckLogin(string username, string password, bool expectedResult)
         {
             //arrange
-            User? user = _users.CheckCredentials(username, password);
+            User? user = _users?.CheckCredentials(username, password);
 
             //act
             bool result = user != null;
@@ -116,7 +116,7 @@ namespace AirportTicketBookingExercise.Test
         [InlineData("","5", "1", null)]
         [InlineData("Abood Jbr","", "1", null)]
         [InlineData("Omar Khalili","6", "1", "380$")]
-        public void ModifyUserBooking(string username ,string flightId, string flightClass, string expectedResult)
+        public void ModifyUserBooking(string username ,string flightId, string flightClass, string? expectedResult)
         {
             //arrange
             var autoFixture = new Fixture();

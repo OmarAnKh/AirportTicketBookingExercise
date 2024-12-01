@@ -42,7 +42,7 @@ namespace AirportTicketBookingExercise
                 }
             }
 
-            userList.SaveUsersToFile("../../../files/Users.txt");
+            userList?.SaveUsersToFile("../../../files/Users.txt");
             flightList.SaveFlightsToFile("../../../files/Flights.txt");
             Console.WriteLine("Goodbye!");
         }
@@ -57,7 +57,7 @@ namespace AirportTicketBookingExercise
             Console.Write("Password: ");
             string? password = Console.ReadLine();
 
-            Console.WriteLine(userList.AddNewUser(username, password) ? "Registration successful." : "Username already exists. Try again.");
+            Console.WriteLine(userList != null && password != null && userList.AddNewUser(username, password) ? "Registration successful." : "Username already exists. Try again.");
         }
         #endregion
 
@@ -70,7 +70,7 @@ namespace AirportTicketBookingExercise
             Console.Write("Password: ");
             string? password = Console.ReadLine();
 
-            User? user = userList.CheckCredentials(username, password);
+            User? user = userList?.CheckCredentials(username, password);
             if (user == null)
             {
                 Console.WriteLine("Invalid credentials. Try again.");
@@ -99,7 +99,7 @@ namespace AirportTicketBookingExercise
                 Console.Write("Please choose an option: ");
 
                 string? choice = Console.ReadLine();
-                User currentUser = userList.User;
+                User? currentUser = userList?.User;
                 string? flightId;
                 if (currentUser != null)
                     switch (choice)
@@ -110,9 +110,9 @@ namespace AirportTicketBookingExercise
                                 flightList.BookFlight(currentUser, flightId);
                             break;
                         case "2":
-                            string? seachTerm = Console.ReadLine();
-                            if (seachTerm != null)
-                                flightList.SearchFlights(seachTerm);
+                            string? searchTerm = Console.ReadLine();
+                            if (searchTerm != null)
+                                flightList.SearchFlights(searchTerm);
                             break;
                         case "3":
                             flightId = Console.ReadLine();
@@ -121,9 +121,11 @@ namespace AirportTicketBookingExercise
                             break;
                         case "4":
                             flightId = Console.ReadLine();
-                            if (flightId != null){
+                            if (flightId != null)
+                            {
                                 string? flightClass = GetUserInputForClassChange();
-                                flightList.ModifyBooking(currentUser, flightId, flightClass);
+                                if (flightClass != null)
+                                    flightList.ModifyBooking(currentUser, flightId, flightClass);
                             }
                             break;
                         case "5":

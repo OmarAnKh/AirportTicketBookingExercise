@@ -19,9 +19,9 @@ namespace AirportTicketBookingExercise.Flight
 
     public interface IBookingManager
     {
-        bool BookFlight(User user, string flightId);
-        bool CancelBooking(User user, string flightId);
-        string? ModifyBookingClass(User user, string flightId, string classChoice);
+        bool BookFlight(User? user, string flightId);
+        bool CancelBooking(User? user, string flightId);
+        string? ModifyBookingClass(User? user, string flightId, string classChoice);
     }
 
     public interface IFlightDisplay
@@ -43,11 +43,12 @@ namespace AirportTicketBookingExercise.Flight
         public void SaveFlights(List<Flight>? flights, string path)
         {
             using StreamWriter sw = new StreamWriter(path, false, Encoding.ASCII);
-            foreach (var flight in flights)
-            {
-                sw.WriteLine(
-                    $"{flight.Id}, {flight.Price}, {flight.DepartureCountry}, {flight.DestinationCountry}, {flight.DepartureDate}, {flight.DepartureAirport}, {flight.ArrivalAirport}, {flight.TicketClass}, {flight.Booked}, {(flight.Booked ? flight.Passenger : "")}");
-            }
+            if (flights != null)
+                foreach (var flight in flights)
+                {
+                    sw.WriteLine(
+                        $"{flight.Id}, {flight.Price}, {flight.DepartureCountry}, {flight.DestinationCountry}, {flight.DepartureDate}, {flight.DepartureAirport}, {flight.ArrivalAirport}, {flight.TicketClass}, {flight.Booked}, {(flight.Booked ? flight.Passenger : "")}");
+                }
         }
 
         public List<Flight>? LoadFlights(string path)
@@ -93,55 +94,64 @@ namespace AirportTicketBookingExercise.Flight
             _flights = flights;
         }
 
-        public bool BookFlight(User user, string flightId)
+        public bool BookFlight(User? user, string flightId)
         {
             if (user == null) return false;
-            var flight = _flights.FirstOrDefault(f => f.Id == flightId && !f.Booked);
-            if (flight == null)
+            if (_flights != null)
             {
-                Console.WriteLine("Flight not available for booking.");
-                return false;
-            }
+                var flight = _flights.FirstOrDefault(f => f.Id == flightId && !f.Booked);
+                if (flight == null)
+                {
+                    Console.WriteLine("Flight not available for booking.");
+                    return false;
+                }
 
-            flight.Passenger = user.Username;
-            flight.Booked = true;
+                flight.Passenger = user.Username;
+                flight.Booked = true;
+            }
             Console.WriteLine("Flight booked successfully.");
             return true;
         }
 
-        public bool CancelBooking(User user, string flightId)
+        public bool CancelBooking(User? user, string flightId)
         {
-            var flight = _flights.FirstOrDefault(f => f.Id == flightId && f.Passenger == user.Username);
-            if (flight == null)
+            if (_flights != null)
             {
-                Console.WriteLine("Booking not found.");
-                return false;
-            }
+                var flight = _flights.FirstOrDefault(f => f.Id == flightId && f.Passenger == user?.Username);
+                if (flight == null)
+                {
+                    Console.WriteLine("Booking not found.");
+                    return false;
+                }
 
-            flight.Booked = false;
-            flight.Passenger = null;
+                flight.Booked = false;
+                flight.Passenger = null;
+            }
             Console.WriteLine("Booking canceled successfully.");
             return true;
         }
 
-        public string? ModifyBookingClass(User user, string flightId, string classChoice)
+        public string? ModifyBookingClass(User? user, string flightId, string classChoice)
         {
-            var flight = _flights.FirstOrDefault(f => f.Id == flightId && f.Passenger == user.Username);
-            if (flight == null)
+            if (_flights != null)
             {
-                Console.WriteLine("Booking not found.");
-                return null;
-            }
+                var flight = _flights.FirstOrDefault(f => f.Id == flightId && f.Passenger == user?.Username);
+                if (flight == null)
+                {
+                    Console.WriteLine("Booking not found.");
+                    return null;
+                }
 
-            Console.WriteLine("Flight found. Current Ticket Class: " + flight.TicketClass);
+                Console.WriteLine("Flight found. Current Ticket Class: " + flight.TicketClass);
 
-            if (!string.IsNullOrEmpty(classChoice))
-            {
-                return UpdateFlightClass(flight, classChoice);
-            }
-            else
-            {
-                Console.WriteLine("No changes were made.");
+                if (!string.IsNullOrEmpty(classChoice))
+                {
+                    return UpdateFlightClass(flight, classChoice);
+                }
+                else
+                {
+                    Console.WriteLine("No changes were made.");
+                }
             }
             return null;
         }
@@ -234,14 +244,17 @@ namespace AirportTicketBookingExercise.Flight
         public bool ShowUserBookings(string? user)
         {
             if (user == "") return false;
-            var userFlights = _flights.Where(f => f.Passenger.Trim() == user).ToList();
-            if (userFlights.Count == 0)
+            if (_flights != null)
             {
-                Console.WriteLine("No bookings found for this user.");
-                return false;
-            }
+                var userFlights = _flights.Where(f => f.Passenger?.Trim() == user).ToList();
+                if (userFlights.Count == 0)
+                {
+                    Console.WriteLine("No bookings found for this user.");
+                    return false;
+                }
 
-            ShowFlights(userFlights);
+                ShowFlights(userFlights);
+            }
             return true;
         }
     }
@@ -329,10 +342,10 @@ namespace AirportTicketBookingExercise.Flight
         public void SaveFlightsToFile(string path) => _persistence.SaveFlights(_flights, path);
         public void DisplayAllFlights() => _display.ShowFlights(_flights);
         public bool DisplayUserBookings(string? user) => _display.ShowUserBookings(user);
-        public bool BookFlight(User user, string flightId) => _bookingManager.BookFlight(user, flightId);
-        public bool CancelBooking(User user, string flightId) => _bookingManager.CancelBooking(user, flightId);
+        public bool BookFlight(User? user, string flightId) => _bookingManager.BookFlight(user, flightId);
+        public bool CancelBooking(User? user, string flightId) => _bookingManager.CancelBooking(user, flightId);
 
-        public string? ModifyBooking(User user, string flightId, string flightClass) =>
+        public string? ModifyBooking(User? user, string flightId, string flightClass) =>
             _bookingManager.ModifyBookingClass(user, flightId,flightClass);
 
         public void SearchFlights(string searchTerm)

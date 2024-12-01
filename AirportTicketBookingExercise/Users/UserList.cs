@@ -115,16 +115,19 @@ namespace AirportTicketBookingExercise.Users
             if (user == null) return user;
 
 
-            byte[] encryptedPassword = Convert.FromBase64String(user.Password);
-            byte[] key = Convert.FromBase64String(user.Key);
-            byte[] iv = Convert.FromBase64String(user.IV);
-
-            string decryptedPassword = Decrypt(encryptedPassword, key, iv);
-
-            if (decryptedPassword == password)
+            if (user.Password != null && user is { Key: not null, IV: not null })
             {
-                _user = new User(user.Username, user.Password, user.Type, user.Key, user.IV);
-                return _user;
+                byte[] encryptedPassword = Convert.FromBase64String(user.Password);
+                byte[] key = Convert.FromBase64String(user.Key);
+                byte[] iv = Convert.FromBase64String(user.IV);
+
+                string decryptedPassword = Decrypt(encryptedPassword, key, iv);
+
+                if (decryptedPassword == password)
+                {
+                    _user = new User(user.Username, user.Password, user.Type, user.Key, user.IV);
+                    return _user;
+                }
             }
 
 
@@ -196,8 +199,7 @@ namespace AirportTicketBookingExercise.Users
             (List<User> Users, int count) usersInfo = _userPersistence.LoadUsers(filePath);
             _users = usersInfo.Users;
             _count = usersInfo.count;
-            if (User != null)
-                _userManager = new UserManager(_users, User);
+            _userManager = new UserManager(_users, User);
             _userDisplay = new UserDisplay();
         }
 
