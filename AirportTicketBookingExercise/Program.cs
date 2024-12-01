@@ -7,8 +7,8 @@ namespace AirportTicketBookingExercise
     {
         private static void Main()
         {
-            UserList? userList = UserList.GetInstance("../../../files/Users.txt");
-            FlightList flightList = FlightList.GetInstance("../../../files/Flights.txt");
+            UserList? userList = UserList.GetInstance(@"..\..\..\files\Users.txt");
+            FlightList flightList = FlightList.GetInstance(@"..\..\..\files\Flights.txt");
 
 
             bool exit = false;
@@ -42,8 +42,8 @@ namespace AirportTicketBookingExercise
                 }
             }
 
-            userList?.SaveUsersToFile("../../../files/Users.txt");
-            flightList.SaveFlightsToFile("../../../files/Flights.txt");
+            userList?.SaveUsersToFile(@"..\..\..\files\Flights.txt");
+            flightList.SaveFlightsToFile(@"..\..\..\files\Flights.txt");
             Console.WriteLine("Goodbye!");
         }
 
