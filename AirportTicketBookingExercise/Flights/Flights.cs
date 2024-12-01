@@ -21,7 +21,7 @@ namespace AirportTicketBookingExercise.Flight
     {
         bool BookFlight(User user, string flightId);
         bool CancelBooking(User user, string flightId);
-        string ModifyBookingClass(User user, string flightId, string classChoice);
+        string? ModifyBookingClass(User user, string flightId, string classChoice);
     }
 
     public interface IFlightDisplay
@@ -148,7 +148,7 @@ namespace AirportTicketBookingExercise.Flight
 
       
 
-        private string UpdateFlightClass(Flight flight, string classChoice)
+        private string? UpdateFlightClass(Flight flight, string classChoice)
         {
             FlightClass currentClass = flight.TicketClass;
             string updatedPrice = flight.Price;
@@ -329,7 +329,7 @@ namespace AirportTicketBookingExercise.Flight
         public bool BookFlight(User user, string flightId) => _bookingManager.BookFlight(user, flightId);
         public bool CancelBooking(User user, string flightId) => _bookingManager.CancelBooking(user, flightId);
 
-        public string ModifyBooking(User user, string flightId, string flightClass) =>
+        public string? ModifyBooking(User user, string flightId, string flightClass) =>
             _bookingManager.ModifyBookingClass(user, flightId,flightClass);
 
         public void SearchFlights(string searchTerm)
