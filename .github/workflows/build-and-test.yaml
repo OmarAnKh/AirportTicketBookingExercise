@@ -5,8 +5,9 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-    - '**.cs'
-    - '**.csproj'
+      - '**/*.cs'
+      - '**/*.csproj'
+      - '**/*.sln'
 
 env:
   DOTNET_VERSION: '8.0.100' # Update to .NET 8.0 SDK version
@@ -14,24 +15,34 @@ env:
 jobs:
   build-and-test:
 
-    name: build-and-test-${{matrix.os}}
+    name: Build and Test ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
+    # Step 1: Checkout repository
     - uses: actions/checkout@v3
-    - name: Setup .NET Core
+
+    # Step 2: Setup .NET SDK
+    - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
-    - name: Install dependencies
-      run: dotnet restore
-      
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+    # Step 3: Debug - List files to confirm .sln location
+    - name: List files in repository
+      run: ls -R
+
+    # Step 4: Restore dependencies
+    - name: Restore dependencies
+      run: dotnet restore AirportTicketBookingExerciseSOLIDPrinciples.sln
+
+    # Step 5: Build solution
+    - name: Build solution
+      run: dotnet build AirportTicketBookingExerciseSOLIDPrinciples.sln --configuration Release --no-restore --verbosity normal
+
+    # Step 6: Run tests
+    - name: Run tests
+      run: dotnet test AirportTicketBookingExerciseSOLIDPrinciples.sln --no-restore --verbosity normal
