@@ -26,12 +26,13 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
-    - name: clean build
-      run: dotnet clean
-     
+
     - name: Install dependencies
       run: dotnet restore
 
+    - name: install newtonsoft
+      run: dotnet add package Newtonsoft.Json --version 13.0.1
+      
     - name: Test
       run: dotnet test --no-restore --verbosity normal
       
