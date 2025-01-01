@@ -9,20 +9,19 @@
       "AirportTicketBookingExercise.Test/1.0.0": {
         "dependencies": {
           "AirportTicketBookingExercise": "1.0.0",
-          "AutoFixture": "4.18.0",
+          "AutoFixture": "4.18.1",
           "FluentAssertions": "6.3.0",
           "Microsoft.NET.Test.Sdk": "17.8.0",
           "Moq": "4.20.72",
-          "Newtonsoft.Json": "13.0.1",
           "coverlet.collector": "6.0.0",
           "xunit": "2.9.2",
-          "xunit.runner.visualstudio": "2.8.0"
+          "xunit.runner.visualstudio": "2.5.3"
         },
         "runtime": {
           "AirportTicketBookingExercise.Test.dll": {}
         }
       },
-      "AutoFixture/4.18.0": {
+      "AutoFixture/4.18.1": {
         "dependencies": {
           "Fare": "2.1.1",
           "System.ComponentModel.Annotations": "4.3.0"
@@ -30,7 +29,7 @@
         "runtime": {
           "lib/netstandard2.0/AutoFixture.dll": {
             "assemblyVersion": "4.18.0.0",
-            "fileVersion": "4.18.0.688"
+            "fileVersion": "4.18.1.694"
           }
         }
       },
@@ -1144,7 +1143,7 @@
           }
         }
       },
-      "xunit.runner.visualstudio/2.8.0": {},
+      "xunit.runner.visualstudio/2.5.3": {},
       "AirportTicketBookingExercise/1.0.0": {
         "dependencies": {
           "Moq": "4.20.72",
@@ -1165,12 +1164,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "AutoFixture/4.18.0": {
+    "AutoFixture/4.18.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xITUSenQsEW3RxXzcDPvxA33PGEQHxfvYjEbiai8URCcmq+osECGdLqGfHmMmcttndWgLxYCV7bRIm089fu7HA==",
-      "path": "autofixture/4.18.0",
-      "hashPath": "autofixture.4.18.0.nupkg.sha512"
+      "sha512": "sha512-BmWZDY4fkrYOyd5/CTBOeXbzsNwV8kI4kDi/Ty1Y5F+WDHBVKxzfWlBE4RSicvZ+EOi2XDaN5uwdrHsItLW6Kw==",
+      "path": "autofixture/4.18.1",
+      "hashPath": "autofixture.4.18.1.nupkg.sha512"
     },
     "Castle.Core/5.1.1": {
       "type": "package",
@@ -1851,12 +1850,12 @@
       "path": "xunit.extensibility.execution/2.9.2",
       "hashPath": "xunit.extensibility.execution.2.9.2.nupkg.sha512"
     },
-    "xunit.runner.visualstudio/2.8.0": {
+    "xunit.runner.visualstudio/2.5.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mqQbS2zr8dfgSWxkNOC6UTzO8JoqpTmM5+FFn2XR/2nVmx2JvEY0YbM5pt2FmXVg9YVe+jKUPHd6KrroyCl67w==",
-      "path": "xunit.runner.visualstudio/2.8.0",
-      "hashPath": "xunit.runner.visualstudio.2.8.0.nupkg.sha512"
+      "sha512": "sha512-HFFL6O+QLEOfs555SqHii48ovVa4CqGYanY+B32BjLpPptdE+wEJmCFNXlLHdEOD5LYeayb9EroaUpydGpcybg==",
+      "path": "xunit.runner.visualstudio/2.5.3",
+      "hashPath": "xunit.runner.visualstudio.2.5.3.nupkg.sha512"
     },
     "AirportTicketBookingExercise/1.0.0": {
       "type": "project",

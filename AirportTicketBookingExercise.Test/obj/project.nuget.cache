@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "v74bsnG8XRY=",
+  "dgSpecHash": "nqaf9D6uf94=",
   "success": true,
   "projectFilePath": "D:\\VS-20230610T091643Z-001\\VS\\course\\foothill\\C#\\Airport-Ticket-Booking-Exercise-SOLID-principles\\Airport-Ticket-Booking-Exercise-SOLID-principles\\AirportTicketBookingExercise.Test\\AirportTicketBookingExercise.Test.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Omark\\.nuget\\packages\\autofixture\\4.18.0\\autofixture.4.18.0.nupkg.sha512",
+    "C:\\Users\\Omark\\.nuget\\packages\\autofixture\\4.18.1\\autofixture.4.18.1.nupkg.sha512",
     "C:\\Users\\Omark\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Omark\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\Omark\\.nuget\\packages\\fare\\2.1.1\\fare.2.1.1.nupkg.sha512",
@@ -102,7 +102,7 @@
     "C:\\Users\\Omark\\.nuget\\packages\\xunit.core\\2.9.2\\xunit.core.2.9.2.nupkg.sha512",
     "C:\\Users\\Omark\\.nuget\\packages\\xunit.extensibility.core\\2.9.2\\xunit.extensibility.core.2.9.2.nupkg.sha512",
     "C:\\Users\\Omark\\.nuget\\packages\\xunit.extensibility.execution\\2.9.2\\xunit.extensibility.execution.2.9.2.nupkg.sha512",
-    "C:\\Users\\Omark\\.nuget\\packages\\xunit.runner.visualstudio\\2.8.0\\xunit.runner.visualstudio.2.8.0.nupkg.sha512"
+    "C:\\Users\\Omark\\.nuget\\packages\\xunit.runner.visualstudio\\2.5.3\\xunit.runner.visualstudio.2.5.3.nupkg.sha512"
   ],
   "logs": [
     {

@@ -33,3 +33,8 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     
+    - name: Run tests
+      run: dotnet test ./AirportTicketBookingExerciseSOLIDPrinciples.sln --no-restore --verbosity normal
+
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
